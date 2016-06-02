@@ -41,7 +41,7 @@ setup(
     keywords=[],
     author='cocoatomo',
     author_email='cocoatomo77 at gmail dot com',
-    url='https://github.org/cocoatomo/pygments-dmdl',
+    url='https://github.com/cocoatomo/pygments-dmdl',
     license='Apache License (2.0)',
     namespace_packages=['dmdl'],
     packages=find_packages('.'),
@@ -52,6 +52,8 @@ setup(
         'setuptools',
     ],
     entry_points="""
+    [pygments.lexers]
+    myhighlight = dmdl.lexer:DmdlLexer
     """,
     zip_safe=False,
     # tests_require=['pytest'],
