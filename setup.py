@@ -53,7 +53,7 @@ setup(
     ],
     entry_points="""
     [pygments.lexers]
-    myhighlight = dmdl.lexer:DmdlLexer
+    dmdl = dmdl.lexer:DmdlLexer
     """,
     zip_safe=False,
     # tests_require=['pytest'],
