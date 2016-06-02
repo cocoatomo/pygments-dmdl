@@ -11,7 +11,12 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+.. code-block:: dmdl
 
+   sample = {
+       id : INT;
+       name : TEXT;
+   }
 
 Indices and tables
 ==================
