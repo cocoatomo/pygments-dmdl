@@ -13,10 +13,51 @@ Contents:
 
 .. code-block:: dmdl
 
+   // hoge
+
+   /*
+    * aaa
+    */
+
+   "desc"
+   @attribute.a.b.c
+   @attribute()
+   @attribute(value = {"a", "b"})
    sample = {
        id : INT;
        name : TEXT;
-   }
+       amount : INT;
+   };
+
+.. code-block:: dmdl
+
+   projective partial = {
+       a : BOOLEAN;
+       b : DECIMAL;
+       c : INT;
+   };
+
+.. code-block:: dmdl
+
+   joined sample_extend = sample -> /* comment */ {
+       id -> id;
+       name -> name;
+       amount -> amount;
+   } % id + partial -> {
+       a -> a;
+       b -> b;
+       c -> id;
+   } % id;
+
+.. code-block:: dmdl
+
+   summarized sum_sample = sample => {
+       any id -> id; // hogehoge
+       sum int -> sum_int; -- fugafuga
+   } % id;
+
+
+
 
 Indices and tables
 ==================
