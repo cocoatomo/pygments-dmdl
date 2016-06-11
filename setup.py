@@ -19,15 +19,16 @@
 from setuptools import setup, find_packages
 import os
 
-version='0.1.0'
+version='0.1.1'
 long_description = '\n'.join([
     open(os.path.join('.', 'README.rst')).read(),
 ])
 
 classifiers = [
-    'Development Status :: 1 - Planning',
+    'Development Status :: 4 - Beta',
     'License :: OSI Approved :: Apache Software License',
     'Programming Language :: Python',
+    'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3.5',
     'Topic :: Documentation',
 ]
