@@ -117,10 +117,10 @@ class DmdlLexer(RegexLexer):
         #      'joined'
         #      'summarized'
         'keyword': [
-            # WORKAROUND: '\s' should be 'skip'
-            (r'projective\s', Keyword.Type),
-            (r'joined\s', Keyword.Type),
-            (r'summarized\s', Keyword.Type),
+            # ensuring these are not a substring of a name
+            (r'projective[^a-z0-9_]', Keyword.Type),
+            (r'joined[^a-z0-9_]', Keyword.Type),
+            (r'summarized[^a-z0-9_]', Keyword.Type),
         ],
         # <aggregator>:
         #      'any'
@@ -129,12 +129,12 @@ class DmdlLexer(RegexLexer):
         #      'min'
         #      'count'
         'aggregator': [
-            # WORKAROUND: '\s' should be 'skip'
-            (r'any\s', Name.Function),
-            (r'sum\s', Name.Function),
-            (r'max\s', Name.Function),
-            (r'min\s', Name.Function),
-            (r'count\s', Name.Function),
+            # ensuring these are not a substring of a name
+            (r'any[^a-z0-9_]', Name.Function),
+            (r'sum[^a-z0-9_]', Name.Function),
+            (r'max[^a-z0-9_]', Name.Function),
+            (r'min[^a-z0-9_]', Name.Function),
+            (r'count[^a-z0-9_]', Name.Function),
         ],
         # <name>:
         #      <first-word>
