@@ -19,7 +19,7 @@
 from setuptools import setup, find_packages
 import os
 
-version='0.1.2'
+version='0.1.3'
 long_description = '\n'.join([
     open(os.path.join('.', 'README.rst')).read(),
 ])
@@ -49,9 +49,7 @@ setup(
     package_dir={'': '.'},
     # package_data = {'': ['buildout.cfg']},
     include_package_data=True,
-    install_requires=[
-        'setuptools',
-    ],
+    install_requires=[],
     entry_points="""
     [pygments.lexers]
     dmdl = dmdl.lexer:DmdlLexer
