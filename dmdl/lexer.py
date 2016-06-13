@@ -225,7 +225,8 @@ class DmdlLexer(RegexLexer):
             (r'DOUBLE', Keyword.Type),
             (r'TEXT', Keyword.Type),
             (r'BOOLEAN', Keyword.Type),
-            (r'DATE', Keyword.Type),
+            # avoid a hasty decision
             (r'DATETIME', Keyword.Type),
+            (r'DATE', Keyword.Type),
         ],
     }

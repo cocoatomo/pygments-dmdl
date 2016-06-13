@@ -56,7 +56,12 @@ Contents:
        sum int -> sum_int; -- fugafuga
    } % id;
 
+.. code-block:: dmdl
 
+   model_using_datetime = {
+       dt : DATETIME;
+       d : DATE;
+   };
 
 
 Indices and tables
