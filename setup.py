@@ -17,9 +17,22 @@
 """
 
 from setuptools import setup, find_packages
-import os
+from setuptools.command.test import test as TestCommand
+import os, sys
 
-version='0.2.0b1'
+class PyTest(TestCommand):
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
+version='0.2.0'
 long_description = '\n'.join([
     open(os.path.join('.', 'README.rst')).read(),
 ])
@@ -55,6 +68,6 @@ setup(
     dmdl = dmdl.lexer:DmdlLexer
     """,
     zip_safe=False,
-    # tests_require=['pytest'],
-    # cmdclass={'test': PyTest},
+    tests_require=['pytest'],
+    cmdclass={'test': PyTest},
 )

@@ -20,22 +20,22 @@
 from pygments.lexer import RegexLexer, include, default, bygroups
 from pygments.token import Text, Whitespace, Keyword, Name, Literal, String, Number, Operator, Punctuation, Comment
 
-def list_with_separator(element_rule, separator_rule, rule_name, token_type):
+def list_with_separator(rule_name, element_rule, element_type, separator_rule, separator_type):
     sub_rule = '_following-' + rule_name
     element_rule_name = '_element-of-' + rule_name
     return {
         rule_name: [
             include('skip'),
-            (element_rule, token_type, ('#pop', sub_rule)),
+            (element_rule, element_type, ('#pop', sub_rule)),
         ],
         sub_rule: [
             include('skip'),
-            (separator_rule, token_type, element_rule_name),
+            (separator_rule, separator_type, element_rule_name),
             default('#pop'),
         ],
         element_rule_name: [
             include('skip'),
-            (element_rule, token_type, '#pop'),
+            (element_rule, element_type, '#pop'),
         ],
     }
 
@@ -295,10 +295,14 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             # NOTE: this implementation does not allow model names 'projective', 'joined' and 'summarized'
             # negative lookahead assertion
-            (r'projective(?![a-z0-9_])', Keyword.Type, ('#pop', 'record-expression', 'bind', 'name')),
-            (r'joined(?![a-z0-9_])', Keyword.Type, ('#pop', 'join-expression', 'bind', 'name')),
-            (r'summarized(?![a-z0-9_])', Keyword.Type, ('#pop', 'summarized-expression', 'bind', 'name')),
-            default(('#pop', 'record-expression', 'bind', 'name')),
+            (r'projective(?![a-z0-9_])', Keyword.Type, ('#pop', 'record-expression', 'bind', 'model-name')),
+            (r'joined(?![a-z0-9_])', Keyword.Type, ('#pop', 'join-expression', 'bind', 'model-name')),
+            (r'summarized(?![a-z0-9_])', Keyword.Type, ('#pop', 'summarized-expression', 'bind', 'model-name')),
+            default(('#pop', 'record-expression', 'bind', 'model-name')),
+        ],
+        'model-name': [
+            include('skip'),
+            (NAME, Name.Class, '#pop'),
         ],
         # <record-expression>:
         #      <record-expression> '+' <record-term>
@@ -412,7 +416,7 @@ class DmdlLexer(RegexLexer):
         #      <name> <model-folding> <grouping>?
         'summarize-term': [
             include('skip'),
-            default(('#pop', 'grouping', 'model-folding', 'name')),
+            default(('#pop', 'grouping', 'model-folding', 'model-name')),
         ],
         # similar to model-mapping
         # <model-folding>:
@@ -463,9 +467,9 @@ class DmdlLexer(RegexLexer):
         ],
     }
 
-    tokens.update(list_with_separator(NAME, r'\.', 'attribute-name', Name.Attribute))
-    tokens.update(list_with_separator(NAME, r'\.', 'qualified-name', Name))
-    tokens.update(list_with_separator(NAME, r',', 'property-list', Name))
+    tokens.update(list_with_separator('attribute-name', NAME, Name.Attribute, r'\.', Name.Attribute))
+    tokens.update(list_with_separator('qualified-name', NAME, Name, r'\.', Name))
+    tokens.update(list_with_separator('property-list', NAME, Name, r',', Punctuation))
 
 
 def debug(code):
