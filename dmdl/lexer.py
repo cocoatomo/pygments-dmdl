@@ -192,8 +192,8 @@ class DmdlLexer(RegexLexer):
         #      <summarized-model-definition>
         'root': [
             include('skip'),
-            (r'"', String.Double, ('end-of-declaration', 'model-name-bind', 'attribute-list', 'description')),
-            default(('end-of-declaration', 'model-name-bind', 'attribute-list')),
+            (r'"', String.Double, ('model-name-bind', 'attribute-list', 'description')),
+            default(('model-name-bind', 'attribute-list')),
         ],
         # <description>:
         #      <string>
@@ -403,7 +403,7 @@ class DmdlLexer(RegexLexer):
         'following-join-term': [
             include('skip'),
             (r';', Punctuation, '#pop'),
-            (r'\+', Operator, ('#pop', 'join-term')),
+            (r'\+', Operator, 'join-term'),
         ],
         # <summarize-expression>:
         #      <summarize-expression> '+' <summarize-term> ← ???
@@ -459,7 +459,7 @@ class DmdlLexer(RegexLexer):
         'following-summarize-term': [
             include('skip'),
             (r';', Punctuation, '#pop'),
-            (r'\+', Operator, ('#pop', 'summarize-term')),
+            (r'\+', Operator, 'summarize-term'),
         ],
         'end-of-declaration': [
             include('skip'),
