@@ -238,7 +238,25 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        message : TEXT;
    };
 
+.. code-block:: dmdl
 
+   ellipsis_sample = {
+       ...
+
+       "プロパティ"
+       @attr
+       property : DATETIME;
+
+       ...
+   };
+
+   ellipsis_sample2 = {
+       ...
+
+       property2 : DATE;
+
+       ...
+   };
 
 
 

@@ -332,6 +332,7 @@ class DmdlLexer(RegexLexer):
         #      <description>? <attribute>* <name> ':' <type> ';'
         'property-definition': [
             include('skip'),
+            (r'\.\.\.', Punctuation, '#pop'),
             (r'"', String.Double, ('#pop', 'end-of-declaration', 'type', 'colon', 'name', 'attribute-list', 'description')),
             default(('#pop', 'end-of-declaration', 'type', 'colon', 'name', 'attribute-list')),
         ],
