@@ -238,8 +238,42 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        message : TEXT;
    };
 
+.. code-block:: dmdl
 
+   ellipsis_sample = {
+       ...
 
+       "プロパティ"
+       @attr
+       property : DATETIME;
+
+       ...
+   };
+
+   ellipsis_sample2 = {
+       ...
+
+       property2 : DATE;
+
+       ...
+   };
+
+.. code-block:: dmdl
+
+   abbreviated_property = {
+       ...
+   };
+
+   joined abbreviated_mapping = hoge -> {
+       ...
+   } % aaa + fuga -> {
+       ...
+   } % aaa;
+
+   summarized abbreviated_summarize = hoge => {
+       ...
+       ...
+   } % aaa;
 
 
 Indices and tables
