@@ -258,6 +258,22 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        ...
    };
 
+.. code-block:: dmdl
+
+   abbreviated_property = {
+       ...
+   };
+
+   joined abbreviated_mapping = hoge -> {
+       ...
+   } % aaa + fuga -> {
+       ...
+   } % aaa;
+
+   summarized abbreviated_summarize = hoge => {
+       ...
+       ...
+   } % aaa;
 
 
 Indices and tables

@@ -64,6 +64,7 @@ class DmdlLexer(RegexLexer):
             (r'/\*', Comment.Multiline, 'block-comment'),
             (r'--.*?$', Comment.Singleline),
             (r'//.*?$', Comment.Singleline),
+            (r'\.\.\.', Punctuation),
         ],
         'block-comment': [
             (r'\*/', Comment.Multiline, '#pop'),
@@ -312,11 +313,11 @@ class DmdlLexer(RegexLexer):
             default(('#pop', 'following-record-term', 'record-term')),
         ],
         # <record-term>:
-        #      '{' <property-definition>+ '}'
+        #      '{' <property-definition>* '}' ← allow empty record-term issue #11
         #      <model-reference>
         'record-term': [
             include('skip'),
-            (r'\{', Punctuation, ('#pop', 'property-definition-list')),
+            (r'\{', Punctuation, ('#pop', 'property-definition')),
             default(('#pop', 'model-reference')),
         ],
         'following-record-term': [
@@ -324,26 +325,17 @@ class DmdlLexer(RegexLexer):
             (r';', Punctuation, '#pop'),
             (r'\+', Operator, 'record-term'),
         ],
-        'property-definition-list': [
-            include('skip'),
-            default(('#pop', 'following-property-definition', 'property-definition')),
-        ],
         # <property-definition>:
         #      <description>? <attribute>* <name> ':' <type> ';'
         'property-definition': [
             include('skip'),
-            (r'\.\.\.', Punctuation, '#pop'),
-            (r'"', String.Double, ('#pop', 'end-of-declaration', 'type', 'colon', 'name', 'attribute-list', 'description')),
-            default(('#pop', 'end-of-declaration', 'type', 'colon', 'name', 'attribute-list')),
+            (r'\}', Punctuation, '#pop'),
+            (r'"', String.Double, ('end-of-declaration', 'type', 'colon', 'name', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'type', 'colon', 'name', 'attribute-list')),
         ],
         'colon': [
             include('skip'),
             (r':', Punctuation, '#pop'),
-        ],
-        'following-property-definition': [
-            include('skip'),
-            (r'\}', Punctuation, '#pop'),
-            default('property-definition'),
         ],
         # <model-reference>:
         #      <name>
@@ -365,7 +357,7 @@ class DmdlLexer(RegexLexer):
             default(('#pop', 'grouping', 'model-mapping', 'model-reference')),
         ],
         # <model-mapping>:
-        #      '->' '{' <property-mapping>+ '}'
+        #      '->' '{' <property-mapping>* '}' ← allow empty model-mapping issue #11
         'model-mapping': [
             include('skip'),
             (r'->', Operator, ('#pop', 'model-mapping-body')),
@@ -373,23 +365,19 @@ class DmdlLexer(RegexLexer):
         ],
         'model-mapping-body': [
             include('skip'),
-            (r'\{', Punctuation, ('#pop', 'following-property-mapping', 'property-mapping')),
+            (r'\{', Punctuation, ('#pop', 'property-mapping')),
         ],
         # <property-mapping>:
         #      <description>? <attribute>* <name> '->' <name> ';'
         'property-mapping': [
             include('skip'),
-            (r'"', String.Double, ('#pop', 'end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list', 'description')),
-            default(('#pop', 'end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list')),
+            (r'\}', Punctuation, '#pop'),
+            (r'"', String.Double, ('end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list')),
         ],
         'mapping-arrow': [
             include('skip'),
             (r'->', Operator, '#pop'),
-        ],
-        'following-property-mapping': [
-            include('skip'),
-            (r'\}', Punctuation, '#pop'),
-            default('property-mapping'),
         ],
         # <grouping>:
         #      '%' <property-list>
@@ -407,7 +395,7 @@ class DmdlLexer(RegexLexer):
             (r'\+', Operator, 'join-term'),
         ],
         # <summarize-expression>:
-        #      <summarize-expression> '+' <summarize-term> ← ???
+        #      <summarize-expression> '+' <summarize-term>
         #      <summarize-term>
         'summarized-expression': [
             include('skip'),
@@ -421,21 +409,22 @@ class DmdlLexer(RegexLexer):
         ],
         # similar to model-mapping
         # <model-folding>:
-        #      '=>' '{' <property-folding>+ '}'
+        #      '=>' '{' <property-folding>* '}' ← allow empty model-folding issue #11
         'model-folding': [
             include('skip'),
             (r'=>', Operator, ('#pop', 'model-folding-body')),
         ],
         'model-folding-body': [
             include('skip'),
-            (r'\{', Punctuation, ('#pop', 'following-property-folding', 'property-folding')),
+            (r'\{', Punctuation, ('#pop', 'property-folding')),
         ],
         # <property-folding>:
         #      <description>? <attribute>* <aggregator> <name> '->' <name> ';'
         'property-folding': [
             include('skip'),
-            (r'"', String.Double, ('#pop', 'end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list', 'description')),
-            default(('#pop', 'end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list')),
+            (r'\}', Punctuation, '#pop'),
+            (r'"', String.Double, ('end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list')),
         ],
         # <aggregator>:
         #      'any'
@@ -452,6 +441,7 @@ class DmdlLexer(RegexLexer):
             (r'min(?![a-z0-9_])', Name.Function, '#pop'),
             (r'count(?![a-z0-9_])', Name.Function, '#pop'),
         ],
+        # TODO Erase
         'following-property-folding': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
