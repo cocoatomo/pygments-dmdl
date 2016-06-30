@@ -441,12 +441,6 @@ class DmdlLexer(RegexLexer):
             (r'min(?![a-z0-9_])', Name.Function, '#pop'),
             (r'count(?![a-z0-9_])', Name.Function, '#pop'),
         ],
-        # TODO Erase
-        'following-property-folding': [
-            include('skip'),
-            (r'\}', Punctuation, '#pop'),
-            default('property-folding'),
-        ],
         'following-summarize-term': [
             include('skip'),
             (r';', Punctuation, '#pop'),
