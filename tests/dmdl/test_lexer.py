@@ -202,6 +202,53 @@ dmdl = DmdlLexer()
              (Name, 'key'),
              (Whitespace, '\n'),]
         ),
+        ( # test for '...'
+            'sample = { id : INT; ... };',
+            [(Name.Class, 'sample'),
+             (Whitespace, ' '),
+             (Operator, '='),
+             (Whitespace, ' '),
+             (Punctuation, '{'),
+             (Whitespace, ' '),
+             (Name, 'id'),
+             (Whitespace, ' '),
+             (Punctuation, ':'),
+             (Whitespace, ' '),
+             (Keyword.Type, 'INT'),
+             (Punctuation, ';'),
+             (Whitespace, ' '),
+             (Punctuation, '...'),
+             (Whitespace, ' '),
+             (Punctuation, '}'),
+             (Punctuation, ';'),
+             (Whitespace, '\n'),]
+        ),
+        (
+            'sample = { };',
+            [(Name.Class, 'sample'),
+             (Whitespace, ' '),
+             (Operator, '='),
+             (Whitespace, ' '),
+             (Punctuation, '{'),
+             (Whitespace, ' '),
+             (Punctuation, '}'),
+             (Punctuation, ';'),
+             (Whitespace, '\n'),]
+        ),
+        (
+            'sample = { ... };',
+            [(Name.Class, 'sample'),
+             (Whitespace, ' '),
+             (Operator, '='),
+             (Whitespace, ' '),
+             (Punctuation, '{'),
+             (Whitespace, ' '),
+             (Punctuation, '...'),
+             (Whitespace, ' '),
+             (Punctuation, '}'),
+             (Punctuation, ';'),
+             (Whitespace, '\n'),]
+        ),
     ]
 )
 def test_Dmdl(text, tokens):
