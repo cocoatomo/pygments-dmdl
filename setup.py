@@ -32,7 +32,7 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
-version='0.3.0'
+version='0.3.1a'
 long_description = '\n'.join([
     open(os.path.join('.', 'README.rst')).read(),
 ])

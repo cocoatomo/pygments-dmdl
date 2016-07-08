@@ -57,6 +57,8 @@ class DmdlLexer(RegexLexer):
     #      ['a'-'z', '0'-'9']+
     NAME = r'[a-z]([a-z0-9])*(_[a-z0-9]+)*'
 
+    PSEUDO_ELEMENT = r'<.+?>'
+
     tokens = {
         ## lexing
         'skip': [ # only for include
@@ -89,6 +91,7 @@ class DmdlLexer(RegexLexer):
         #      <sequence-type>
         'type': [
             include('skip'),
+            (PSEUDO_ELEMENT, Keyword.Type, '#pop'),
             include('basic-type'),
             include('reference-type'),
             include('sequence-type'),
@@ -129,7 +132,7 @@ class DmdlLexer(RegexLexer):
         #     <type> '*'
         'sequence-type': [
             include('skip'),
-            default(('#pop', 'type', 'asterisk')),
+            default(('#pop', 'asterisk', 'type')),
         ],
         'asterisk': [
             include('skip'),
@@ -145,6 +148,11 @@ class DmdlLexer(RegexLexer):
         'name': [
             include('skip'),
             (NAME, Name, '#pop'),
+        ],
+        'name-or-pseudo-element': [
+            include('skip'),
+            (NAME, Name, '#pop'),
+            (PSEUDO_ELEMENT, Name.Variable.Instance, '#pop'),
         ],
         # <literal>:
         #      <string>
@@ -298,12 +306,13 @@ class DmdlLexer(RegexLexer):
             # negative lookahead assertion
             (r'projective(?![a-z0-9_])', Keyword.Type, ('#pop', 'record-expression', 'bind', 'model-name')),
             (r'joined(?![a-z0-9_])', Keyword.Type, ('#pop', 'join-expression', 'bind', 'model-name')),
-            (r'summarized(?![a-z0-9_])', Keyword.Type, ('#pop', 'summarized-expression', 'bind', 'model-name')),
+            (r'summarized(?![a-z0-9_])', Keyword.Type, ('#pop', 'summarize-expression', 'bind', 'model-name')),
             default(('#pop', 'record-expression', 'bind', 'model-name')),
         ],
         'model-name': [
             include('skip'),
             (NAME, Name.Class, '#pop'),
+            (PSEUDO_ELEMENT, Name.Class, '#pop'),
         ],
         # <record-expression>:
         #      <record-expression> '+' <record-term>
@@ -317,6 +326,7 @@ class DmdlLexer(RegexLexer):
         #      <model-reference>
         'record-term': [
             include('skip'),
+            (PSEUDO_ELEMENT, Name.Variable.Instance, '#pop'),
             (r'\{', Punctuation, ('#pop', 'property-definition')),
             default(('#pop', 'model-reference')),
         ],
@@ -330,8 +340,8 @@ class DmdlLexer(RegexLexer):
         'property-definition': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
-            (r'"', String.Double, ('end-of-declaration', 'type', 'colon', 'name', 'attribute-list', 'description')),
-            default(('end-of-declaration', 'type', 'colon', 'name', 'attribute-list')),
+            (r'"', String.Double, ('end-of-declaration', 'type', 'colon', 'name-or-pseudo-element', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'type', 'colon', 'name-or-pseudo-element', 'attribute-list')),
         ],
         'colon': [
             include('skip'),
@@ -342,6 +352,7 @@ class DmdlLexer(RegexLexer):
         'model-reference': [
             include('skip'),
             (NAME, Name.Class, '#pop'),
+            (PSEUDO_ELEMENT, Name.Class, '#pop'),
         ],
         # <join-expression>:
         #      <join-expression> '+' <join-term>
@@ -366,6 +377,7 @@ class DmdlLexer(RegexLexer):
         'model-mapping-body': [
             include('skip'),
             (r'\{', Punctuation, ('#pop', 'property-mapping')),
+            (PSEUDO_ELEMENT, Name.Variable.Instance, '#pop'),
         ],
         # <property-mapping>:
         #      <description>? <attribute>* <name> '->' <name> ';'
@@ -397,7 +409,7 @@ class DmdlLexer(RegexLexer):
         # <summarize-expression>:
         #      <summarize-expression> '+' <summarize-term>
         #      <summarize-term>
-        'summarized-expression': [
+        'summarize-expression': [
             include('skip'),
             default(('#pop', 'following-summarize-term', 'summarize-term')),
         ],
@@ -423,8 +435,8 @@ class DmdlLexer(RegexLexer):
         'property-folding': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
-            (r'"', String.Double, ('end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list', 'description')),
-            default(('end-of-declaration', 'name', 'mapping-arrow', 'name', 'aggregator', 'attribute-list')),
+            (r'"', String.Double, ('end-of-declaration', 'name-or-pseudo-element', 'mapping-arrow', 'name-or-pseudo-element', 'aggregator', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'name-or-pseudo-element', 'mapping-arrow', 'name-or-pseudo-element', 'aggregator', 'attribute-list')),
         ],
         # <aggregator>:
         #      'any'
@@ -440,6 +452,7 @@ class DmdlLexer(RegexLexer):
             (r'max(?![a-z0-9_])', Name.Function, '#pop'),
             (r'min(?![a-z0-9_])', Name.Function, '#pop'),
             (r'count(?![a-z0-9_])', Name.Function, '#pop'),
+            (PSEUDO_ELEMENT, Name.Function, '#pop'),
         ],
         'following-summarize-term': [
             include('skip'),
@@ -454,7 +467,7 @@ class DmdlLexer(RegexLexer):
 
     tokens.update(list_with_separator('attribute-name', NAME, Name.Attribute, r'\.', Name.Attribute))
     tokens.update(list_with_separator('qualified-name', NAME, Name, r'\.', Name))
-    tokens.update(list_with_separator('property-list', NAME, Name, r',', Punctuation))
+    tokens.update(list_with_separator('property-list', '|'.join([NAME, PSEUDO_ELEMENT]), Name, r',', Punctuation))
 
 
 def debug(code):
