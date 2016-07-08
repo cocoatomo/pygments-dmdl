@@ -275,6 +275,32 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        ...
    } % aaa;
 
+.. code-block:: dmdl
+
+   <疑似要素> = {
+       <プロパティ1> : <データタイプ1>;
+       id : INT;
+   };
+
+.. code-block:: dmdl
+
+   joined <結合モデル> = <モデル1> -> {
+       "マッピング"
+       <マップ元プロパティ> -> <マップ先プロパティ>;
+   } % <マップ先プロパティ> + <モデル2> -> <マッピング定義> % <結合キー>;
+
+.. code-block:: dmdl
+
+   summarized <集計モデル> = <対象モデル> => {
+       <集約関数> <集計元> -> <集計結果>;
+   };
+
+.. code-block:: dmdl
+
+   projective <モデル名> = {
+       <プロパティ> : <型>;
+   };
+
 
 Indices and tables
 ==================

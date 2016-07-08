@@ -152,7 +152,7 @@ class DmdlLexer(RegexLexer):
         'name-or-pseudo-element': [
             include('skip'),
             (NAME, Name, '#pop'),
-            (PSEUDO_ELEMENT, Name.Variable.Instance, '#pop'),
+            (PSEUDO_ELEMENT, Name, '#pop'),
         ],
         # <literal>:
         #      <string>
@@ -384,8 +384,8 @@ class DmdlLexer(RegexLexer):
         'property-mapping': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
-            (r'"', String.Double, ('end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list', 'description')),
-            default(('end-of-declaration', 'name', 'mapping-arrow', 'name', 'attribute-list')),
+            (r'"', String.Double, ('end-of-declaration', 'name-or-pseudo-element', 'mapping-arrow', 'name-or-pseudo-element', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'name-or-pseudo-element', 'mapping-arrow', 'name-or-pseudo-element', 'attribute-list')),
         ],
         'mapping-arrow': [
             include('skip'),
