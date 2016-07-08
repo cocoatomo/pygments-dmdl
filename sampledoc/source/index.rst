@@ -301,6 +301,16 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        <プロパティ> : <型>;
    };
 
+.. code-block:: dmdl
+
+   // trailing comma
+   @attr(
+      hoge = TRUE,
+      fuga = "aaa",
+   )
+   mode = {
+       ...
+   };
 
 Indices and tables
 ==================

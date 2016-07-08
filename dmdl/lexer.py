@@ -251,7 +251,7 @@ class DmdlLexer(RegexLexer):
         #      <name> '=' <attribute-value>
         'attribute-element': [
             include('skip'),
-            (r'\)', Punctuation, '#pop'),
+            (r'\)', Punctuation, '#pop:2'),
             default(('#pop', 'attribute-value', 'bind', 'name')),
         ],
         'bind': [
@@ -292,7 +292,7 @@ class DmdlLexer(RegexLexer):
         ],
         'attribute-value-ext': [
             include('skip'),
-            (r'\}', Punctuation, '#pop'),
+            (r'\}', Punctuation, '#pop:2'),
             default(('#pop', 'attribute-value')),
         ],
         # <model-definition>:
