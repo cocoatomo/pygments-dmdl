@@ -60,7 +60,6 @@ setup(
     namespace_packages=['dmdl'],
     packages=find_packages('.'),
     package_dir={'': '.'},
-    # package_data = {'': ['buildout.cfg']},
     include_package_data=True,
     install_requires=[],
     entry_points="""

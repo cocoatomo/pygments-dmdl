@@ -17,7 +17,7 @@
  limitations under the License.
 """
 
-from pygments.lexer import RegexLexer, include, default, bygroups
+from pygments.lexer import RegexLexer, include, default
 from pygments.token import Text, Whitespace, Keyword, Name, Literal, String, Number, Operator, Punctuation, Comment
 
 def list_with_separator(rule_name, element_rule, element_type, separator_rule, separator_type):

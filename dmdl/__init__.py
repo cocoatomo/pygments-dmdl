@@ -16,8 +16,6 @@
  limitations under the License.
 """
 
-__import__('pkg_resources').declare_namespace(__name__)
-
 __all__ = ['DmdlLexer']
 
 from dmdl.lexer import DmdlLexer
