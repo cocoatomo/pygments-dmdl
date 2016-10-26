@@ -20,17 +20,6 @@ from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 import os, sys
 
-class PyTest(TestCommand):
-
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        errno = pytest.main(self.test_args)
-        sys.exit(errno)
 
 version='0.3.2'
 long_description = '\n'.join([
@@ -67,6 +56,7 @@ setup(
     dmdl = dmdl.lexer:DmdlLexer
     """,
     zip_safe=False,
+    setup_requires=['pytest-runner'],
     tests_require=['pytest'],
-    cmdclass={'test': PyTest},
+    cmdclass={},
 )
