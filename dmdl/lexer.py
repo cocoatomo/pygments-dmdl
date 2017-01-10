@@ -220,7 +220,7 @@ class DmdlLexer(RegexLexer):
         #      '@' <qname>
         #      '@' <qname> '(' ')'
         #      '@' <qname> '(' <attribute-element-list> ','? ')'
-        # rule ','? is processed at attribute-element
+        # rule ','? is processed at following-attribute-element
         'attribute': [
             include('skip'),
             default(('#pop', 'attribute-option-tuple', 'attribute-name')),
@@ -271,7 +271,7 @@ class DmdlLexer(RegexLexer):
         # <attribute-value-array>:
         #      '{' '}'
         #      '{' <attribute-value-list> ','? '}'
-        # rule ','? is processed at attribute-value-ext
+        # rule ','? is processed at following-attribute-value
         'attribute-value-array': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
