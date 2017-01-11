@@ -312,6 +312,20 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        ...
    };
 
+.. code-block:: dmdl
+
+   @attribute(
+       e_map = {
+           "a" : 100,
+           "b" : "Hello, world!",
+           "c" : 3.141592,
+           "d" : TRUE,
+           0 : {},
+           1 : {:},
+       }
+   )
+   simple = {a : INT; };
+
 Indices and tables
 ==================
 
