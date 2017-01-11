@@ -162,8 +162,8 @@ class DmdlLexer(RegexLexer):
         'literal': [
             include('skip'),
             (r'"', String.Double, ('#pop', 'string-literal')),
-            include('integer-literal'),
             include('decimal-literal'),
+            include('integer-literal'),
             include('boolean-literal'),
         ],
         # <integer-literal>:
@@ -260,13 +260,40 @@ class DmdlLexer(RegexLexer):
         ],
         # <attribute-value>:
         #      <attribute-value-array>
+        #      <attribute-value-map>
         #      <qname>
         #      <literal>
         'attribute-value': [
             include('skip'),
-            (r'\{', Punctuation, ('#pop', 'attribute-value-array')),
+            (r'\{', Punctuation, ('#pop', 'attribute-value-array-or-map-1')),
             include('literal'),
             default(('#pop', 'qualified-name')),
+        ],
+        # <attribute-value-map>:
+        #      '{' ':' '}'
+        #      '{' <attribute-pair-list> ','? '}'
+        # rule ','? is processed at following-attribute-pair
+        'attribute-value-array-or-map-1': [
+            include('skip'),
+            # '\}' -> empty array
+            (r'\}', Punctuation, '#pop'),
+            # ':' -> empty map
+            (r':', Punctuation, ('#pop', 'closing-curly-brace')),
+            # lookahead assertion for literal
+            (r'(?=[".0-9TF])', Literal, ('#pop', 'attribute-value-array-or-map-2', 'literal')),
+            # otherwise
+            default(('#pop', 'attribute-value-array')),
+        ],
+        'attribute-value-array-or-map-2': [
+            include('skip'),
+            # ':' -> map
+            (r':', Punctuation, ('#pop', 'following-attribute-pair', 'attribute-value')),
+            # otherwise -> array
+            default(('#pop', 'following-attribute-value')),
+        ],
+        'closing-curly-brace': [
+            include('skip'),
+            (r'\}', Punctuation, '#pop')
         ],
         # <attribute-value-array>:
         #      '{' '}'
@@ -294,6 +321,25 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             (r'\}', Punctuation, '#pop:2'),
             default(('#pop', 'attribute-value')),
+        ],
+        # <attribute-pair-list>:
+        #      <attribute-pair-list> ',' <attribute-pair>
+        #      <attribute-pair>
+        'following-attribute-pair': [
+            include('skip'),
+            (r'\}', Punctuation, '#pop'),
+            (r',', Punctuation, 'attribute-pair-ext'),
+        ],
+        'attribute-pair-ext': [
+            include('skip'),
+            (r'\}', Punctuation, '#pop:2'),
+            default(('#pop', 'attribute-pair')),
+        ],
+        #  <attribute-pair>:
+        #      <literal> ':' <attribute-value>
+        'attribute-pair': [
+            include('skip'),
+            default(('#pop', 'attribute-value', 'colon', 'literal')),
         ],
         # <model-definition>:
         #      <record-model-definition>
