@@ -44,7 +44,7 @@ setup(
     classifiers=classifiers,
     keywords=[],
     author='cocoatomo',
-    author_email='cocoatomo77 at gmail dot com',
+    author_email='cocoatomo77@gmail.com',
     url='https://github.com/cocoatomo/pygments-dmdl',
     license='Apache License (2.0)',
     namespace_packages=['dmdl'],
