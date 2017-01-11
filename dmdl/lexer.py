@@ -315,7 +315,6 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             (r'\}', Punctuation, '#pop'),
             (r',', Punctuation, 'attribute-value-ext'),
-            default('#pop'),
         ],
         'attribute-value-ext': [
             include('skip'),
