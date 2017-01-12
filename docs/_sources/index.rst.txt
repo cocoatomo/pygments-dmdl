@@ -6,7 +6,8 @@
 Welcome to Sample Doc for pygments-dmdl's documentation!
 ========================================================
 
-Contents:
+Simple case
+-----------
 
 .. toctree::
    :maxdepth: 2
@@ -20,6 +21,9 @@ Contents:
    b = {
        name : TEXT;
    };
+
+Various attribute forms
+-----------------------
 
 .. code-block:: dmdl
 
@@ -39,6 +43,9 @@ Contents:
        amount : INT;
    };
 
+Projective model
+----------------
+
 .. code-block:: dmdl
 
    projective partial = {
@@ -46,6 +53,9 @@ Contents:
        b : DECIMAL;
        c : INT;
    };
+
+Joined model
+------------
 
 .. code-block:: dmdl
 
@@ -59,6 +69,9 @@ Contents:
        c -> id;
    } % id;
 
+Summarized model
+----------------
+
 .. code-block:: dmdl
 
    summarized sum_sample = sample => {
@@ -66,12 +79,18 @@ Contents:
        sum int -> sum_int; -- fugafuga
    } % id;
 
+DATE and DATETIME
+-----------------
+
 .. code-block:: dmdl
 
    model_using_datetime = {
        dt : DATETIME;
        d : DATE;
    };
+
+Larger example
+--------------
 
 copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-basic-spark/src/main/dmdl/models.dmdl
 
@@ -238,6 +257,9 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
        message : TEXT;
    };
 
+Special syntax
+--------------
+
 .. code-block:: dmdl
 
    ellipsis_sample = {
@@ -311,6 +333,9 @@ copied from https://github.com/asakusafw/asakusafw-examples/blob/master/example-
    mode = {
        ...
    };
+
+Map attribute value
+-------------------
 
 .. code-block:: dmdl
 
