@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Sample Doc for pygments-dmdl’s documentation! &#8212; Sample Doc for pygments-dmdl 0.1.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-sample-doc-for-pygments-dmdl-s-documentation">
+<h1>Welcome to Sample Doc for pygments-dmdl&#8217;s documentation!<a class="headerlink" href="#welcome-to-sample-doc-for-pygments-dmdl-s-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="nc">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="nc">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="c c-Singleline">// hoge</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * aaa</span>
+<span class="cm"> */</span><span class="w"></span>
+
+<span class="s2">&quot;desc&quot;</span><span class="w"></span>
+<span class="na">@attribute.a.b.c</span><span class="w"></span>
+<span class="na">@attribute</span><span class="p">()</span><span class="w"></span>
+<span class="na">@attribute</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">})</span><span class="w"></span>
+<span class="nc">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">amount</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">projective</span><span class="w"> </span><span class="nc">partial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">BOOLEAN</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DECIMAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">joined</span><span class="w"> </span><span class="nc">sample_extend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">sample</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cm">/* comment */</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">amount</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nc">partial</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">summarized</span><span class="w"> </span><span class="nc">sum_sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">sample</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nf">any</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="c c-Singleline">// hogehoge</span><span class="w"></span>
+<span class="w">    </span><span class="nf">sum</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">sum_int</span><span class="p">;</span><span class="w"> </span><span class="c c-Singleline">-- fugafuga</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="nc">model_using_datetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATE</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>copied from <a class="reference external" href="https://github.com/asakusafw/asakusafw-examples/blob/master/example-basic-spark/src/main/dmdl/models.dmdl">https://github.com/asakusafw/asakusafw-examples/blob/master/example-basic-spark/src/main/dmdl/models.dmdl</a></p>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="c c-Singleline">-- 入力CSVファイル形式</span><span class="w"></span>
+
+<span class="s2">&quot;売上明細&quot;</span><span class="w"></span>
+<span class="na">@directio.csv</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">has_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">datetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nc">sales_detail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;売上日時&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;日時&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">sales_date_time</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;店舗コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;店舗コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">store_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;商品コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;数量&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;数量&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">amount</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;販売単価&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;販売単価&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">unit_selling_price</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;販売金額&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;販売金額&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">selling_price</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;ファイル名&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.file_name</span><span class="w"></span>
+<span class="w">    </span><span class="n">file_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="s2">&quot;店舗マスタ&quot;</span><span class="w"></span>
+<span class="na">@directio.csv</span><span class="p">(</span><span class="n">has_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="p">)</span><span class="w"></span>
+<span class="nc">store_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;店舗コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;店舗コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">store_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;店舗名称&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;名称&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">store_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="s2">&quot;商品マスタ&quot;</span><span class="w"></span>
+<span class="na">@directio.csv</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">has_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;yyyy-MM-dd&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nc">item_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;商品コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品名&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;商品名&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品部門コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;部門コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">department_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品部門名&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;部門名&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">department_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品カテゴリコード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;カテゴリコード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">category_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品カテゴリ名&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;カテゴリ名&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">category_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品単価&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;単価&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">unit_selling_price</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;マスタ登録日&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;登録日&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">registered_date</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATE</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;マスタ適用開始日&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;適用開始日&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">begin_date</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATE</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;マスタ適用終了日&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;適用終了日&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">end_date</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATE</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c c-Singleline">-- 中間データ形式</span><span class="w"></span>
+
+<span class="s2">&quot;売上明細+商品マスタ&quot;</span><span class="w"></span>
+<span class="kt">joined</span><span class="w"> </span><span class="nc">joined_sales_info</span><span class="w"></span>
+<span class="o">=</span><span class="w"> </span><span class="nc">sales_detail</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_code</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">item_code</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">amount</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">selling_price</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">selling_price</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">item_code</span><span class="w"></span>
+<span class="o">+</span><span class="w"> </span><span class="nc">item_info</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_code</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">item_code</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">category_code</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">category_code</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">item_code</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="c c-Singleline">-- 出力CSV形式</span><span class="w"></span>
+
+<span class="s2">&quot;カテゴリ別売上集計&quot;</span><span class="w"></span>
+<span class="na">@directio.csv</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">has_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="kt">summarized</span><span class="w"> </span><span class="nc">category_summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">joined_sales_info</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;カテゴリコード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">any</span><span class="w"> </span><span class="n">category_code</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">category_code</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;販売数量&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">sum</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">amount_total</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;売上合計&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nf">sum</span><span class="w"> </span><span class="n">selling_price</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">selling_price_total</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">category_code</span><span class="p">;</span><span class="w"></span>
+
+<span class="s2">&quot;エラー情報&quot;</span><span class="w"></span>
+<span class="na">@directio.csv</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">has_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nc">error_record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;ファイル名&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ファイル名&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">file_name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;売上日時&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;日時&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">sales_date_time</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;店舗コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;店舗コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">store_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;商品コード&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;商品コード&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">item_code</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;エラーメッセージ&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@directio.csv.field</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;メッセージ&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">message</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="nc">ellipsis_sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;プロパティ&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">@attr</span><span class="w"></span>
+<span class="w">    </span><span class="n">property</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="nc">ellipsis_sample2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">property2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">DATE</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="nc">abbreviated_property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">joined</span><span class="w"> </span><span class="nc">abbreviated_mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">hoge</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">aaa</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nc">fuga</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">aaa</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">summarized</span><span class="w"> </span><span class="nc">abbreviated_summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">hoge</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">aaa</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="nc">&lt;疑似要素&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">&lt;プロパティ1&gt;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">&lt;データタイプ1&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">joined</span><span class="w"> </span><span class="nc">&lt;結合モデル&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">&lt;モデル1&gt;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;マッピング&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">&lt;マップ元プロパティ&gt;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">&lt;マップ先プロパティ&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">&lt;マップ先プロパティ&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nc">&lt;モデル2&gt;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="vi">&lt;マッピング定義&gt;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">&lt;結合キー&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">summarized</span><span class="w"> </span><span class="nc">&lt;集計モデル&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">&lt;対象モデル&gt;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nf">&lt;集約関数&gt;</span><span class="w"> </span><span class="n">&lt;集計元&gt;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">&lt;集計結果&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="kt">projective</span><span class="w"> </span><span class="nc">&lt;モデル名&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">&lt;プロパティ&gt;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">&lt;型&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="c c-Singleline">// trailing comma</span><span class="w"></span>
+<span class="na">@attr</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">hoge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">TRUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">fuga</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nc">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-dmdl"><div class="highlight"><pre><span></span><span class="na">@attribute</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">e_map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;b&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">3.141592</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="l">TRUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">        </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{:},</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="nc">simple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">INT</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Sample Doc for pygments-dmdl&#8217;s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, cocoatomo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
