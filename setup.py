@@ -21,7 +21,7 @@ from setuptools.command.test import test as TestCommand
 import os, sys
 
 
-version='0.4.0'
+version='0.5.0a1'
 long_description = '\n'.join([
     open(os.path.join('.', 'README.rst')).read(),
 ])
