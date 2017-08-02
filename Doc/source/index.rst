@@ -351,6 +351,119 @@ Map attribute value
    )
    simple = {a : INT; };
 
+Property reference
+------------------
+
+List type
+~~~~~~~~~
+
+.. code-block:: dmdl
+
+   m = {
+       a : INT;
+       b : INT;
+       c : INT;
+       ref = {a, b, c};
+   };
+
+Map type
+~~~~~~~~
+
+.. code-block:: dmdl
+
+   m = {
+       a : INT;
+       b : INT;
+       c : INT;
+       ref = {
+           "A" : a,
+           "B" : b,
+           "C" : c,
+       };
+   };
+
+Specyfying types
+~~~~~~~~~~~~~~~~
+
+.. code-block:: dmdl
+
+   m = {
+       a : INT;
+       b : INT;
+       c : INT;
+       ref_list : {INT} = {a, b, c};
+       ref_alist : {:INT} = { "A" : a, "B" : b, "C" : c, };
+   };
+
+
+
+.. code-block:: dmdl
+
+   m = {
+       ref_list : {INT} = {};
+       ref_alist : {:TEXT} = {:};
+   };
+
+Defining stubs
+~~~~~~~~~~~~~~
+
+.. code-block:: dmdl
+
+   projective something = {
+
+       // INTの参照リスト
+       ref_list : {INT};
+
+       // TEXTの参照マップ
+       ref_alist : {:TEXT};
+   };
+
+Composition
+~~~~~~~~~~~
+
+.. code-block:: dmdl
+
+   p0 = {
+       a : INT;
+       ref = {a};
+   };
+
+   // ref = {a} が引き継がれる
+   model = p0;
+
+.. code-block:: dmdl
+
+   p0 = {
+       a : INT;
+       ref = {a};
+   };
+
+   p1 = {
+       b : INT;
+       ref = {b};
+   };
+
+   m = p0 + p1 + {
+       ref = {a, b};
+   };
+
+.. code-block:: dmdl
+
+   p0 = {
+       a : INT;
+       ref = {a};
+   };
+
+   p1 = {
+       a : INT;
+       ref = {a};
+   };
+
+   m = p0 + p1 + {
+       ref = p0.ref;
+   };
+
+
 Indices and tables
 ==================
 
