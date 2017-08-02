@@ -1,4 +1,5 @@
 #!/bin/bash
+# publish sample documents on https://cocoatomo.github.io/pygments-dmdl/index.html
 
 set -e -x -u
 
