@@ -88,13 +88,13 @@ class DmdlLexer(RegexLexer):
         # <type>:
         #      <basic-type>
         #      <reference-type>
-        #      <sequence-type>
+        #      <collection-type>
         'type': [
             include('skip'),
             (PSEUDO_ELEMENT, Keyword.Type, '#pop'),
             include('basic-type'),
             include('reference-type'),
-            include('sequence-type'),
+            include('collection-type'),
         ],
         # <basic-type>:
         #      'INT'
@@ -128,15 +128,12 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             (NAME, Keyword.Type, '#pop'),
         ],
-        # <sequence-type>:
-        #     <type> '*'
-        'sequence-type': [
+        # <collection-type>:
+        #     '{' <type> '}'
+        #     '{' ':' <type> '}'
+        'collection-type': [
             include('skip'),
-            default(('#pop', 'asterisk', 'type')),
-        ],
-        'asterisk': [
-            include('skip'),
-            (r'\*', Operator, '#pop'),
+            # TODO
         ],
         # <name>:
         #      <first-word>
