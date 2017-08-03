@@ -389,8 +389,8 @@ class DmdlLexer(RegexLexer):
         ],
         # <property-definition>:
         #      <description>? <attribute>* <name> ':' <type> ';'
-        #      <description>? <attribute>* <name> '=' <property-value> ';'
-        #      <description>? <attribute>* <name> ':' <type> '=' <property-value> ';'
+        #      <description>? <attribute>* <name> '=' <property-expression> ';'
+        #      <description>? <attribute>* <name> ':' <type> '=' <property-expression> ';'
         'property-definition': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
@@ -399,7 +399,6 @@ class DmdlLexer(RegexLexer):
         ],
         'property-definition-latter-half': [
             include('skip'),
-            # TODO property-value? property-expression?
             (r':', Punctuation, ('#pop', 'property-definition-with-type', 'type')),
             (r'=', Operator, ('#pop', 'property-expression')),
         ],
