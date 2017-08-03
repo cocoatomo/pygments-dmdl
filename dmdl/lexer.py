@@ -88,13 +88,13 @@ class DmdlLexer(RegexLexer):
         # <type>:
         #      <basic-type>
         #      <reference-type>
-        #      <sequence-type>
+        #      <collection-type>
         'type': [
             include('skip'),
             (PSEUDO_ELEMENT, Keyword.Type, '#pop'),
             include('basic-type'),
             include('reference-type'),
-            include('sequence-type'),
+            include('collection-type'),
         ],
         # <basic-type>:
         #      'INT'
@@ -128,15 +128,18 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             (NAME, Keyword.Type, '#pop'),
         ],
-        # <sequence-type>:
-        #     <type> '*'
-        'sequence-type': [
+        # <collection-type>:
+        #     '{' <type> '}'
+        #     '{' ':' <type> '}'
+        'collection-type': [
             include('skip'),
-            default(('#pop', 'asterisk', 'type')),
+            # '{', ':', '}' should be treated as a part of type?
+            (r'\{', Punctuation, ('#pop', 'collection-type-array-or-map')),
         ],
-        'asterisk': [
+        'collection-type-array-or-map': [
             include('skip'),
-            (r'\*', Operator, '#pop'),
+            (r':', Punctuation, ('#pop', 'closing-curly-brace', 'type')),
+            default(('#pop', 'closing-curly-brace', 'type')),
         ],
         # <name>:
         #      <first-word>
@@ -340,6 +343,10 @@ class DmdlLexer(RegexLexer):
             include('skip'),
             default(('#pop', 'attribute-value', 'colon', 'literal')),
         ],
+        'colon': [
+            include('skip'),
+            (r':', Punctuation, '#pop'),
+        ],
         # <model-definition>:
         #      <record-model-definition>
         #      <projective-model-definition>
@@ -382,15 +389,33 @@ class DmdlLexer(RegexLexer):
         ],
         # <property-definition>:
         #      <description>? <attribute>* <name> ':' <type> ';'
+        #      <description>? <attribute>* <name> '=' <property-value> ';'
+        #      <description>? <attribute>* <name> ':' <type> '=' <property-value> ';'
         'property-definition': [
             include('skip'),
             (r'\}', Punctuation, '#pop'),
-            (r'"', String.Double, ('end-of-declaration', 'type', 'colon', 'name-or-pseudo-element', 'attribute-list', 'description')),
-            default(('end-of-declaration', 'type', 'colon', 'name-or-pseudo-element', 'attribute-list')),
+            (r'"', String.Double, ('end-of-declaration', 'property-definition-latter-half', 'name-or-pseudo-element', 'attribute-list', 'description')),
+            default(('end-of-declaration', 'property-definition-latter-half', 'name-or-pseudo-element', 'attribute-list')),
         ],
-        'colon': [
+        'property-definition-latter-half': [
             include('skip'),
-            (r':', Punctuation, '#pop'),
+            # TODO property-value? property-expression?
+            (r':', Punctuation, ('#pop', 'property-definition-with-type', 'type')),
+            (r'=', Operator, ('#pop', 'property-expression')),
+        ],
+        'property-definition-with-type': [
+            include('skip'),
+            (r'=', Operator, ('#pop', 'property-expression')),
+            default('#pop'),
+        ],
+        # <property-expression>:
+        #     <property-expression-list>      ← <attribute-value-array> と同じ
+        #     <property-expression-map>       ← <attribute-value-map> と同じ
+        #     <property-expression-reference> ← <qname> と同じ
+        'property-expression': [
+            include('skip'),
+            (r'\{', Punctuation, ('#pop', 'attribute-value-array-or-map-1')),
+            default(('#pop', 'qualified-name')),
         ],
         # <model-reference>:
         #      <name>
