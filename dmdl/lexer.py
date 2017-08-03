@@ -133,6 +133,7 @@ class DmdlLexer(RegexLexer):
         #     '{' ':' <type> '}'
         'collection-type': [
             include('skip'),
+            # '{', ':', '}' should be treated as a part of type?
             (r'\{', Punctuation, ('#pop', 'collection-type-array-or-map')),
         ],
         'collection-type-array-or-map': [
@@ -399,10 +400,10 @@ class DmdlLexer(RegexLexer):
         'property-definition-latter-half': [
             include('skip'),
             # TODO property-value? property-expression?
-            (r':', Punctuation, ('#pop', 'property-definition-type', 'type')),
+            (r':', Punctuation, ('#pop', 'property-definition-with-type', 'type')),
             (r'=', Operator, ('#pop', 'property-expression')),
         ],
-        'property-definition-type': [
+        'property-definition-with-type': [
             include('skip'),
             (r'=', Operator, ('#pop', 'property-expression')),
             default('#pop'),
