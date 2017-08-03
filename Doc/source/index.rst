@@ -6,6 +6,8 @@
 Welcome to Sample Doc for pygments-dmdl's documentation!
 ========================================================
 
+.. contents:: Table of contents
+
 Simple case
 -----------
 
