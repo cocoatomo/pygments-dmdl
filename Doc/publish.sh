@@ -1,5 +1,6 @@
 #!/bin/bash
-# publish sample documents on https://cocoatomo.github.io/pygments-dmdl/index.html
+# publish the sample document on https://cocoatomo.github.io/pygments-dmdl/index.html
+# should run on master branch
 
 set -e -x -u
 
@@ -15,7 +16,7 @@ echo "${_DOCS_DIR}"/.nojekyll
 cp -rp "${_SPHINX_PROJECT_DIR}/build/html"/* "${_DOCS_DIR}/"
 
 git add --all "${_DOCS_DIR}"
-git commit -m "commit at $(date)"
+git commit -m "Publish the sample document"
 git push
 
 echo 'Success'
